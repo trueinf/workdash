@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TopNav } from './components/TopNav';
 import { Dashboard } from './components/pages/Dashboard';
+import { ActionBoard } from './components/pages/ActionBoard';
 import { AIAgents } from './components/pages/AIAgents';
 import { Preferences } from './components/pages/Preferences';
 import { InboxTriage } from './components/pages/InboxTriage';
@@ -13,7 +14,7 @@ import { Login } from './components/pages/Login';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeView, setActiveView] = useState('dashboard');
+  const [activeView, setActiveView] = useState('action-board');
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -21,7 +22,7 @@ export default function App() {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    setActiveView('dashboard');
+    setActiveView('action-board');
   };
 
   // Show login page if not authenticated
@@ -33,6 +34,8 @@ export default function App() {
     switch (activeView) {
       case 'dashboard':
         return <Dashboard />;
+      case 'action-board':
+        return <ActionBoard />;
       case 'ai-agents':
         return <AIAgents />;
       case 'preferences':

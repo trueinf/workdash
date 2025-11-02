@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, LayoutDashboard, Bot, Settings, LogOut, User } from 'lucide-react';
+import { ChevronDown, LayoutDashboard, Bot, Settings, LogOut, User, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface TopNavProps {
@@ -113,6 +113,24 @@ export function TopNav({ activeView, onNavigate, onLogout }: TopNavProps) {
               )}
             </AnimatePresence>
           </div>
+
+          {/* Dashboard */}
+          <button
+            onClick={() => onNavigate('action-board')}
+            className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
+              activeView === 'action-board'
+                ? 'bg-secondary text-primary'
+                : 'text-text-secondary hover:bg-surface hover:text-foreground'
+            }`}
+            style={{ 
+              transition: 'var(--transition-fast)',
+              fontSize: 'var(--text-base)',
+              fontWeight: 'var(--font-weight-medium)'
+            }}
+          >
+            <Sparkles className="w-4 h-4" />
+            Action Board
+          </button>
 
           {/* Dashboard */}
           <button
